@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+    .w3-bar-block .w3-bar-item {padding:20px}
+
+    .combo{
+    /* padding:5px;
+    width: 445px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2rem;
+    box-shadow: 1cm;
+    box-shadow: rgb(0, 0, 0); */
+    /* margin: auto; */
+    width: 400px;
+    margin-top: 30px;
+    padding: 5px 4px;
+    border-radius: 1rem;
+    margin-left: 63px; 
+    font-size: 16px;
+    outline: none;
+    box-shadow: 1px 2px 1px #c72222;
+    }
+    .combo:hover {  
+      
+    box-shadow: 0 5px 6px rgba(58, 73, 80, 0.685),
+    0 5px 6px rgba(58, 73, 80, 0.685);
+
+    }
+  .date_style{
+    width: 403px;
+    margin-top: 19px;
+    padding: 5px 8px;
+    border-radius: 1rem;
+    margin-left: 89px;
+    }
+  .date_style:hover {  
+    box-shadow: 0 5px 6px rgba(58, 73, 80, 0.685),
+    0 5px 6px rgba(58, 73, 80, 0.685);
+    }
+
+    .action_btn {
+    width: 50%; 
+    /* margin: 0 auto; */
+    display: inline;
+  } 
+
+
+
+
+    </style>
+    <title>My Expense Tracker</title>
+  </head>
+  
+  <body>
+
+    <div class="container">
+      <p id="error_msg"></p>
+      <h1 class= "title" style="align-content: center;">My Expense Tracker</h1>
+      <hr class="new1">
+      
+
+      <h3>New Entry</h3>
+      <form id="form">
+
+          <label for="text">Category</label>
+          <!-- <select class="combo">
+            <option value="Select">Select....</option>
+            <option value="html">HTML 5</option>
+            <option value="css">CSS 3</option> -->
+
+            <!-- <input
+            type="text"
+            id="text"
+            onfocus="this.value=''"
+            placeholder="Enter text..."
+            > -->
+            <!-- <select class="combo" id = "text">
+                <option value="Select">Select....</option>
+                <option value="html">HTML 5</option>
+                <option value="css">CSS 3</option></select> -->
+ 
+            <!-- </select> -->
+
+          <!-- <label for="select" class="select">
+            <input type="radio" name="list" value="not_changed" id="select">
+            <div class="items">
+              <input type="radio" name="list" value="first_value" id="list[0]">
+              <label for="list[0]">First option</label>
+              <input type="radio" name="list" value="second_value" id="list[1]">
+              <label for="list[1]">Second loooooong option</label>
+              <span id="text">Select something...</span>
+            </div>
+          </label> -->
+
+          <!-- COMBOBOX -->
+      
+          <select class = "combo" id="category" onChange="update()">
+            <option value="fd">Food</option>
+            <option value="es">Travel</option>
+            <option value="gr">Groceries</option>
+            <option value="et">Entertainment</option>
+            <option value="oth" id="ot">Other</option>
+            <!-- <option value="vv" id="ocat"></option> -->
+            <!-- <option value="x" id="excat"></option> -->
+           
+          </select>
+        
+          <!-- <p id="msg"></p> -->
+        <!-- </div>  -->
+        <button class="add" onclick="addCategory()">Add</button>
+        <br>
+        <div class="action_btn" >
+          <button class="addbtn" onclick="extraCategory()" >Extra Category</button>
+          
+          <p id = "add_category"></p> 
+        </div>
+        <!-- <a class="et_pb_button" title="Relevant Title" href="#">click me</a> onchange="addTransaction()"
+        <a class="et_pb_button" title="Relevant Title" href="#">no click me</a>
+        <a class="et_pb_button" title="Relevant Title" href="#">no me lol</a> -->
+         
+<!-- Amount-->        
+        <div class="form-control">
+          <label for="amount">Amount(+/-) <br /> </label>
+          <input
+            type="number"
+            id="amount"
+            onfocus="this.value=''"
+            placeholder="How Much?"
+            style="width: 400px;margin-top: 10px;padding: 5px 8px;border-radius: 1rem;margin-left: 38px;"
+           
+          />
+        </div>
+
+        <!-- Note -->
+        <div class="form-control">
+            <label for="text">Note</label>
+            <input
+              type="text"
+              id="text_note"
+              onfocus="this.value=''"
+              placeholder="What did you spend on?"
+          
+              style="width: 400px;margin-top: 22px;padding: 4px 8px;border-radius: 1rem;margin-left: 89px;"
+            />
+        </div>
+
+<!--Date-->          
+          <div class="form-control">
+            <label for="amount">Date<br /> </label>
+            <input
+              class="date_style"
+              type="date"
+              id="date"
+              onfocus="this.value=''"
+              placeholder="  Enter Date..."            
+            />
+          </div>
+
+
+
+        <!--  -->
+
+  <button class="btn" >Add transaction</button>
+      </form>
+      <br />
+
+      <h3>Wallet<i class="fa fa-google-wallet" style="font-size:28px;justify-content: center;color:rgb(33, 62, 231)"></i></h3>
+      <div class="income-expense">
+        <div class="bg-dark">
+          <h4 style="color: rgb(0, 0, 0);font-weight:bold;">Inflow</h4>
+          <p class="income" id="income">Rs. 0.00/-</p>
+        </div>
+        <div class="bg-dark">
+          <h4 style="color: #c5000dd3;font-weight:bold;">Outflow</h4>
+          <p class="expense" id="expense">Rs.0.00/-</p>
+        </div>
+        <div class="bg-dark">
+          <h4 style="color: rgb(34, 0, 88);font-weight:bold;">Balance</h4>
+          <p id="balance">Rs.0.00/-</p>
+        </div>
+      </div>
+      <h3>History<i class="fa fa-question" style="font-size:28px;justify-content: center;color:rgb(92, 4, 4)"></i></h3>
+      <!-- Dynamic unordered list to display the various transactions -->
+      <ul id="list" class="list"></ul>
+      
+      <p id="notice"></p>
+      <div class="social-container">
+        <h3>Contact Me</h3>
+        <a href="https://www.linkedin.com/in/sourjadip-pramanik-77aab6208"
+        target="_blank" >
+         
+          <i class="fa fa-linkedin-square" style="font-size:28px;justify-content: center;color:rgb(6, 41, 235)"></i>
+        </a>
+        <a href="https://github.com/Sourja99"
+        target="_blank">
+      
+        <i class="fa fa-github" style="font-size:28px;justify-content: center;padding-left: 30px;color:rgb(0, 0, 0)"></i>
+        </a>
+
+        <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox"
+        target="_blank">
+        <i class="fa fa-envelope" style="font-size:28px;justify-content: center;padding-left: 30px;color:rgb(56, 59, 1)"></i>
+        <h7>sourjadip.pramanik20@vit.edu</h7>
+      </a> 
+      
+      <a href="https://drive.google.com/drive/folders/1UFRNi3QGk044o7DSnkrkV8MIDh8iIK_i?usp=sharing"
+      target="_blank">
+        <i class="fa fa-cloud-download" style="font-size:28px;justify-content: center;padding-left: 30px;color:rgb(165, 7, 7)"></i>
+      </a>
+      
+      </div>
+
+    </div>
+    <script type="module" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="../JS/main.js"></script>
+    
+
+  </body>
+</html>
